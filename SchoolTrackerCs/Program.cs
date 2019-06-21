@@ -29,9 +29,9 @@ namespace SchoolTrackerCs
                 ///
                 Student newStudent = new Student();
 
-                //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
-                //newStudent.Grade = Utility.AskInt("Student grade");
-                //newStudent.Birthday = Utility.Ask("Student birthday dates");
+                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.Grade = Utility.AskInt("Student grade");
+                newStudent.Birthday = Utility.Ask("Student birthday dates");
                 newStudent.Address = Utility.CheckStringForElementV5("Student address",digits);
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
