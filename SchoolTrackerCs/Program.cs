@@ -32,7 +32,7 @@ namespace SchoolTrackerCs
                 newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
                 newStudent.Grade = Utility.AskInt("Student grade");
                 newStudent.Birthday = Utility.Ask("Student birthday dates");
-                newStudent.Address = Utility.CheckStringForElementV5("Student address",digits);
+                newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 /// To add our newStudent object to our list
