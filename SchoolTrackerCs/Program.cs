@@ -63,7 +63,7 @@ namespace SchoolTrackerCs
                     //newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     //newTeacher.Address = Utility.Ask("Teacher address");
                     newTeacher.Email = Utility.ValidateEmail("Teacher email address");
-                    newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
+                    //newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
                     //newTeacher.Birthday = Utility.Ask("Teacher birth date");
 
                     teachers.Add(newTeacher);

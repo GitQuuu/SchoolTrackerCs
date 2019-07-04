@@ -332,44 +332,62 @@ namespace SchoolTrackerCs
            
             bool loopState = true;
             char[] emailSymbols = {'@','.'};
+            int emailPosition = 0;
+            int periodPosition = 0;
             int match = 0;
-            string answer;
+            string email;
+            
 
             Console.WriteLine(question);
-            
+           
 
             do
             {
-                answer = Console.ReadLine();
+                email = Console.ReadLine();
 
                 foreach (char element in emailSymbols)
                 {
-                    for (int index = 0; index < answer.Length; index++)
+                    for (int index = 0; index < email.Length; index++)
                     {
-                        if (answer[index] == element )
+                        if (index -1 >= 0) // To bypass the "index is out of bound array issue
                         {
-                            match++;
-                            Console.WriteLine("Match");
+                            if (email[index] == element && char.IsLetterOrDigit(email[index -1]) && !char.IsPunctuation(email[index +1]) && email.Contains(".") && !email.EndsWith("."))
+                            {
+                                match++;
+                                
+                            }
 
-                        }                
+                            if (email[index] == emailSymbols[0])
+                            {
+                                emailPosition = index;
+                            }
+
+                            if (email[index] == emailSymbols[1])
+                            {
+                                periodPosition = index;
+                            }
+                        }                   
+                    }
+                    if (match == 0)
+                    {
+                        break;
                     }
                 }
 
-                if (match == 2)
+                if (match >= 1 && periodPosition > emailPosition)
                 {
                     loopState = false;
+                    return email;
                 }
                 else
-                {
-                    match = 0;
+                {                   
                     Console.WriteLine("input not an email, please try again");
-                    
+                    loopState = true;
                 } 
 
             } while (loopState);
 
-            return answer;
-
+            return email;
         }
 
 
