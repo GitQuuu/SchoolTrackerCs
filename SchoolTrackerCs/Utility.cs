@@ -327,6 +327,12 @@ namespace SchoolTrackerCs
             return answer;
         }
 
+        static public bool ValidateEmail(string input)
+        {
+
+            return true;
+        }
+
 
     }
 }
