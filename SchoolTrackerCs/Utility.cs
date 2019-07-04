@@ -327,10 +327,25 @@ namespace SchoolTrackerCs
             return answer;
         }
 
-        static public bool ValidateEmail(string input)
+        static public string ValidateEmail(string input)
         {
+            string answer = input;
+            bool loopState = true;
+            char[] emailStructure = {'@','.'};
 
-            return true;
+            do
+            {
+                foreach (char element in emailStructure)
+                {
+                    for (int index = 0; index < input.Length; index++)
+                    {
+
+                    }
+                } 
+            } while (loopState);
+
+            return answer;
+
         }
 
 

@@ -34,7 +34,7 @@ namespace SchoolTrackerCs
         //Methods
         public void Display()
         {
-            Console.WriteLine($"Teacher name:{Name} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher birthday:{Birthday} ");
+            Console.WriteLine($"Teacher name:{Name} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher email:{Email} \nTeacher birthday:{Birthday} ");
         }
     }
 }
