@@ -327,21 +327,45 @@ namespace SchoolTrackerCs
             return answer;
         }
 
-        static public string ValidateEmail(string input)
+        static public string ValidateEmail(string question)
         {
-            string answer = input;
+           
             bool loopState = true;
-            char[] emailStructure = {'@','.'};
+            char[] emailSymbols = {'@','.'};
+            int match = 0;
+            string answer;
+
+            Console.WriteLine(question);
+            
 
             do
             {
-                foreach (char element in emailStructure)
-                {
-                    for (int index = 0; index < input.Length; index++)
-                    {
+                answer = Console.ReadLine();
 
+                foreach (char element in emailSymbols)
+                {
+                    for (int index = 0; index < answer.Length; index++)
+                    {
+                        if (answer[index] == element )
+                        {
+                            match++;
+                            Console.WriteLine("Match");
+
+                        }                
                     }
+                }
+
+                if (match == 2)
+                {
+                    loopState = false;
+                }
+                else
+                {
+                    match = 0;
+                    Console.WriteLine("input not an email, please try again");
+                    
                 } 
+
             } while (loopState);
 
             return answer;

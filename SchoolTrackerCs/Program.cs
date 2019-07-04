@@ -62,8 +62,8 @@ namespace SchoolTrackerCs
                     //newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
                     //newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     //newTeacher.Address = Utility.Ask("Teacher address");
-                    newTeacher.Email = Utility.RequiredSymbols("Teacher email address", email);
-                    //newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
+                    newTeacher.Email = Utility.ValidateEmail("Teacher email address");
+                    newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
                     //newTeacher.Birthday = Utility.Ask("Teacher birth date");
 
                     teachers.Add(newTeacher);
