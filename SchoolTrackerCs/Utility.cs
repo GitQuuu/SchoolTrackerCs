@@ -349,9 +349,9 @@ namespace SchoolTrackerCs
                 {
                     for (int index = 0; index < email.Length; index++)
                     {
-                        if (index -1 >= 0) // To bypass the "index is out of bound array issue
+                        if (index -1 >= 0 && !email.EndsWith("@") && !email.EndsWith(".") && !email.Contains(' ') && email.Contains(".")) // To bypass the "index is out of bound array issue
                         {
-                            if (email[index] == element && char.IsLetterOrDigit(email[index -1]) && !char.IsPunctuation(email[index +1]) && email.Contains(".") && !email.EndsWith("."))
+                            if (email[index] == element && char.IsLetterOrDigit(email[index -1]) && !char.IsPunctuation(email[index +1]))
                             {
                                 match++;
                                 
