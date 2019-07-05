@@ -23,7 +23,7 @@ namespace SchoolTrackerCs
             bool studentLoopState = true;
             bool teacherLoopState = true;
 
-            /*while (studentLoopState)
+            while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
                 ///
@@ -49,7 +49,7 @@ namespace SchoolTrackerCs
                 {
                     studentLoopState = false;
                 }
-            }*/
+            }
 
             while (teacherLoopState)
             {
@@ -58,13 +58,13 @@ namespace SchoolTrackerCs
                 {
                     Teacher newTeacher = new Teacher();
 
-                    //newTeacher.Name = Utility.ExcludeSymbols("Teacher name", digits);
-                    //newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
-                    //newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
-                    //newTeacher.Address = Utility.Ask("Teacher address");
+                    newTeacher.Name = Utility.ExcludeSymbols("Teacher name", digits);
+                    newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
+                    newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
+                    newTeacher.Address = Utility.Ask("Teacher address");
                     newTeacher.Email = Utility.ValidateEmail("Teacher email address");
-                    //newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
-                    //newTeacher.Birthday = Utility.Ask("Teacher birth date");
+                    newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
+                    newTeacher.Birthday = Utility.Ask("Teacher birth date");
 
                     teachers.Add(newTeacher);
 
