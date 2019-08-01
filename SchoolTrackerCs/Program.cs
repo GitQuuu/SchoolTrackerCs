@@ -20,10 +20,10 @@ namespace SchoolTrackerCs
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             char[] email = new char[] { '@' };
 
-            bool addStudent = true;
-            bool addTeacher = true;
+            bool studentLoopState = true;
+            bool teacherLoopState = true;
 
-            while (addStudent)
+            while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
                 ///
@@ -47,11 +47,11 @@ namespace SchoolTrackerCs
                 Console.WriteLine("add another? y/n");
                 if (Console.ReadLine() != "y")
                 {
-                    addStudent = false;
+                    studentLoopState = false;
                 }
-
             }
-            while (addTeacher)
+
+            while (teacherLoopState)
             {
 
                 if (Utility.Ask("add a(nother) teacher? y/n?") == "y")
@@ -62,7 +62,7 @@ namespace SchoolTrackerCs
                     newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
                     newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     newTeacher.Address = Utility.Ask("Teacher address");
-                    newTeacher.Email = Utility.RequiredSymbols("Teacher email address", email);
+                    newTeacher.Email = Utility.ValidateEmail("Teacher email address");
                     newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
                     newTeacher.Birthday = Utility.Ask("Teacher birth date");
 
@@ -74,7 +74,7 @@ namespace SchoolTrackerCs
                 }
                 else
                 {
-                    addTeacher = false;
+                    teacherLoopState = false;
                 }
 
             }

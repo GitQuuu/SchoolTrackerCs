@@ -138,159 +138,6 @@ namespace SchoolTrackerCs
             return answer;
         }
 
-        static public string CheckStringForElementV2(string question, char[] noneAllowedSpecials)
-        {
-            System.Console.WriteLine(question);
-
-            string answer;
-            int specialsCount = 0;
-            bool loopState = true;
-            do
-            {
-                answer = System.Console.ReadLine();
-                foreach (char element in noneAllowedSpecials)
-                {
-                    for (int index = 0; index < answer.Length; index++)
-                    {
-                        if (answer[index] == element)
-                        {
-                            specialsCount++;
-                            break;
-                        }
-                    }
-                }
-
-                if (specialsCount > 0)
-                {
-                    System.Console.WriteLine("Please try again");
-                    specialsCount = 0;
-                }
-                else
-                {
-                    loopState = false;
-                }
-
-
-            } while (loopState);
-
-
-            return answer;
-        }
-
-        static public string CheckStringForElementV3(string question, char[] noneAllowedSpecials)
-        {
-            System.Console.WriteLine(question);
-            string answer;
-            bool loopState = true;
-            int errorCount = 0;
-            do
-            {
-                answer = System.Console.ReadLine();
-                foreach (char element in noneAllowedSpecials)
-                {
-                    for (int index = 0; index < answer.Length; index++)
-                    {
-                        if (answer[index] == element)
-                        {
-                            errorCount++;
-                            break;
-                        }
-                    }
-                }
-
-                if (errorCount > 0)
-                {
-                    System.Console.WriteLine("try again");
-                    errorCount = 0;
-                }
-                else
-                {
-                    loopState = false;
-                }
-
-            } while (loopState);
-
-            return answer;
-        }
-
-        static public string CheckStringForElementV4(string question, char[] NoneAllowedSpecials)
-        {
-            System.Console.WriteLine(question);
-
-            string answer;
-            bool loopState = true;
-            int errorCount = 0;
-
-            do
-            {
-                answer = System.Console.ReadLine();
-                foreach (char element in NoneAllowedSpecials)
-                {
-                    for (int index = 0; index < answer.Length; index++)
-                    {
-                        if (answer[index] == element)
-                        {
-                            errorCount++;
-                            break;
-                        }
-                    }
-                }
-
-                if (errorCount > 0)
-                {
-                    System.Console.WriteLine("Please try again");
-                    errorCount = 0;
-
-                }
-                else
-                {
-                    loopState = false;
-                }
-
-            } while (loopState);
-
-
-            return answer;
-        }
-
-        static public string CheckStringForElementV5(string question, char[] NoneAllowedSymbols)
-        {
-            System.Console.WriteLine(question);
-
-            bool loopState = true;
-            string answer;
-            int errorCount = 0;
-            do
-            {
-                answer = Console.ReadLine();
-                foreach (char elements in NoneAllowedSymbols)
-                {
-                    for (int index = 0; index < answer.Length; index++)
-                    {
-                        if (answer[index] == elements)
-                        {
-                            errorCount++;
-                            break;
-                        }                      
-                    }
-                }
-
-                if (errorCount>0)
-                {
-                    errorCount = 0;
-                    Console.WriteLine("Please try again");
-                }
-                else
-                {
-                    loopState = false;
-                }
-
-
-            } while (loopState);
-
-            return answer;
-        }
-
         static public string RequiredSymbols(string question, char[] requiredSymbols)
         {
             System.Console.WriteLine(question);
@@ -325,6 +172,69 @@ namespace SchoolTrackerCs
             } while (loopState);
 
             return answer;
+        }
+
+        static public string ValidateEmail(string question)
+        {
+           
+            bool loopState = true;
+            char[] emailSymbols = {'@','.'};
+            int emailPosition = 0;
+            int periodPosition = 0;
+            int match = 0;
+            string email;
+            
+
+            Console.WriteLine(question);
+           
+
+            do
+            {
+                email = Console.ReadLine();
+
+                foreach (char element in emailSymbols)
+                {
+                    for (int index = 0; index < email.Length; index++)
+                    {
+                        if (index -1 >= 0 && !email.EndsWith("@") && !email.EndsWith(".") && !email.Contains(' ') && email.Contains(".") && !email.StartsWith(".")) // To bypass the "index is out of bound array issue
+                        {
+                            if (email[index] == element && char.IsLetterOrDigit(email[index -1]) && !char.IsPunctuation(email[index +1]))
+                            {
+                                match++;
+                                
+                            }
+
+                            if (email[index] == emailSymbols[0])
+                            {
+                                emailPosition = index;
+                            }
+
+                            if (email[index] == emailSymbols[1])
+                            {
+                                periodPosition = index;
+                            }
+                        }                   
+                    }
+                    if (match == 0)
+                    {
+                        break;
+                    }
+                }
+
+                if (match >= 1 && periodPosition > emailPosition)
+                {
+                    loopState = false;
+                    return email;
+                }
+                else
+                {                   
+                    Console.WriteLine("input not an email, please try again");
+                    loopState = true;
+                } 
+
+            } while (loopState);
+
+            return email;
         }
 
 
