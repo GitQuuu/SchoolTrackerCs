@@ -66,6 +66,31 @@ namespace SchoolTrackerCs
             return answer;
         }
 
+        static public string CPR(string question)
+        {
+            string confirmedCPR = "";
+            bool loopState = true;
+            do
+            {
+                
+                Console.WriteLine(question);
+                string checkCPR = Console.ReadLine();
+
+                if (checkCPR.Length == 10 )
+                {
+                    loopState = false;
+                    confirmedCPR = checkCPR;
+                }
+                else
+                {
+                    Console.WriteLine("Try again");
+                    
+                }
+            } while (loopState);
+
+            return confirmedCPR;
+        }
+
         //Failsafe and force input to be chars only
         /// <summary>
         /// https://stackoverflow.com/questions/1181419/verifying-that-a-string-contains-only-letters-in-c-sharp

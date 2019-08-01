@@ -25,11 +25,12 @@ namespace SchoolTrackerCs
                 ///
                 Student newStudent = new Student();
 
-                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
-                newStudent.Grade = Utility.AskInt("Student grade");
-                newStudent.Birthday = Utility.Ask("Student birthday dates");
-                newStudent.Address = Utility.Ask("Student address");
-                newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                //newStudent.Grade = Utility.AskInt("Student grade");
+
+                newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
+                //newStudent.Address = Utility.Ask("Student address");
+                //newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 /// To add our newStudent object to our list
                 /// 
@@ -47,7 +48,7 @@ namespace SchoolTrackerCs
                 }
             }
 
-            while (teacherLoopState)
+            /*while (teacherLoopState)
             {
 
                 if (Utility.Ask("add a(nother) teacher? y/n?") == "y")
@@ -72,8 +73,8 @@ namespace SchoolTrackerCs
                 {
                     teacherLoopState = false;
                 }
-
-            }
+                
+            }*/
 
 
             foreach (Student student in students)
