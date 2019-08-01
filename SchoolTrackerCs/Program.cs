@@ -12,13 +12,9 @@ namespace SchoolTrackerCs
             /// 
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
-
-            ///Defining an array for our failsafe method CheckStringForElement to use as a parameter like on line 32
-            ///This char array will be used to check the string for not having the values inside the elements
-            ///This allow our CheckStringForElement to be flexibel , we could just instantiate a new array og any desired type and 
-            ///parse in which desired value we want to check the string for
+           
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            char[] email = new char[] { '@' };
+            
 
             bool studentLoopState = true;
             bool teacherLoopState = true;
