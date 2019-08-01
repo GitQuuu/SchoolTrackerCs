@@ -68,18 +68,19 @@ namespace SchoolTrackerCs
 
         static public string CPR(string question)
         {
-            string confirmedCPR = "";
+            string _varConfirmedCPR = "";
             bool loopState = true;
             do
             {
-                
+
                 Console.WriteLine(question);
                 string checkCPR = Console.ReadLine();
+                checkCPR.ToArray();
 
-                if (checkCPR.Length == 10 )
+                if (checkCPR.Length == 10 && checkCPR[0] < 4 && checkCPR[1] <10)
                 {
                     loopState = false;
-                    confirmedCPR = checkCPR;
+                    _varConfirmedCPR = checkCPR;
                 }
                 else
                 {
@@ -88,7 +89,11 @@ namespace SchoolTrackerCs
                 }
             } while (loopState);
 
-            return confirmedCPR;
+            _varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
+            _varConfirmedCPR = _varConfirmedCPR.Insert(5,"/");
+            _varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
+
+            return _varConfirmedCPR;
         }
 
         //Failsafe and force input to be chars only
