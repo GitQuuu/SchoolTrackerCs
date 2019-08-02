@@ -87,8 +87,7 @@ namespace SchoolTrackerCs
                 }
 
                 if (long.TryParse(inputCPR, out long checkCPR) && checkCPR.ToString().Length == 10)
-                {
-                  
+                {                
                     _varConfirmedCPR = checkCPR;
                     loopState = false;
                 }
@@ -98,11 +97,6 @@ namespace SchoolTrackerCs
 
                 }
             } while (loopState);
-
-            //_varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
-            //_varConfirmedCPR = _varConfirmedCPR.Insert(5,"/");
-            //_varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
-
 
             return _varConfirmedCPR;
         }
