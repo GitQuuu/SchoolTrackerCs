@@ -77,7 +77,7 @@ namespace SchoolTrackerCs
                 string checkCPR = Console.ReadLine();
                 checkCPR.ToArray();
 
-                if (checkCPR.Length == 10 && checkCPR[0] < 4 && checkCPR[1] <10)
+                if (checkCPR.Length == 10)
                 {
                     loopState = false;
                     _varConfirmedCPR = checkCPR;
