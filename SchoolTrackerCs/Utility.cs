@@ -70,12 +70,13 @@ namespace SchoolTrackerCs
         {
             string _varConfirmedCPR = "";
             bool loopState = true;
+            char[] arr;
             do
             {
                 Console.WriteLine(question);
                 string checkCPR = Console.ReadLine();
                 
-                if (checkCPR.Length == 10)
+                if (checkCPR.Length == 10 && char.IsDigit(checkCPR,0))
                 {
                     loopState = false;
                     _varConfirmedCPR = checkCPR;
@@ -90,6 +91,7 @@ namespace SchoolTrackerCs
             _varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
             _varConfirmedCPR = _varConfirmedCPR.Insert(5,"/");
             _varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
+
 
             return _varConfirmedCPR;
         }
