@@ -21,7 +21,7 @@ namespace SchoolTrackerCs
 
         }
 
-        public Teacher(string name, string birthday, string address, int phoneNumber, decimal salary, string specials)
+        public Teacher(string name, long birthday, string address, int phoneNumber, decimal salary, string specials)
         {
             Name = name;
             Address = address;

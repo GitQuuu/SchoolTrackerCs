@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace SchoolTrackerCs
 {
@@ -66,31 +67,41 @@ namespace SchoolTrackerCs
             return answer;
         }
 
-        static public string CPR(string question)
+        static public long CPR(string question)
         {
-            string _varConfirmedCPR = "";
+            long _varConfirmedCPR = 0;
             bool loopState = true;
-            char[] arr;
+
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("da-DK");
+
             do
             {
                 Console.WriteLine(question);
-                string checkCPR = Console.ReadLine();
-                
-                if (checkCPR.Length == 10 && char.IsDigit(checkCPR,0))
+                string inputCPR = Console.ReadLine();
+
+
+                if (!DateTime.TryParse(String.Format("{0:##-##-19##}", int.Parse(inputCPR.Substring(0, 6))), culture, DateTimeStyles.None, out DateTime Birthday))
                 {
-                    loopState = false;
+                    Console.WriteLine("Not valid input");
+                    continue;
+                }
+
+                if (long.TryParse(inputCPR, out long checkCPR) && checkCPR.ToString().Length == 10)
+                {
+                  
                     _varConfirmedCPR = checkCPR;
+                    loopState = false;
                 }
                 else
                 {
                     Console.WriteLine("Try again");
-                    
+
                 }
             } while (loopState);
 
-            _varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
-            _varConfirmedCPR = _varConfirmedCPR.Insert(5,"/");
-            _varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
+            //_varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
+            //_varConfirmedCPR = _varConfirmedCPR.Insert(5,"/");
+            //_varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
 
 
             return _varConfirmedCPR;

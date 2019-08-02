@@ -18,7 +18,7 @@ namespace SchoolTrackerCs
         }
 
         // A constructor for our Student class, this is so we can add a student hvis we already have the info beforehand
-        public Student(string name, int grade, string birthday, string address, int phoneNumber)
+        public Student(string name, int grade, long birthday, string address, int phoneNumber)
         {
             Name = name;
             Grade = grade;
@@ -31,7 +31,7 @@ namespace SchoolTrackerCs
         public void Display()
         {
 
-            Console.WriteLine($"Student name:{Name} \nStudent grade:{Grade} \nStudent birthday date:{Birthday} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
+            Console.WriteLine($"Student name:{Name} \nStudent grade:{Grade} \nStudent birthday date:{Birthday:##-##-##-####} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
         }
 
     }
