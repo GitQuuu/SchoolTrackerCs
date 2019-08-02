@@ -72,11 +72,9 @@ namespace SchoolTrackerCs
             bool loopState = true;
             do
             {
-
                 Console.WriteLine(question);
                 string checkCPR = Console.ReadLine();
-                checkCPR.ToArray();
-
+                
                 if (checkCPR.Length == 10)
                 {
                     loopState = false;
@@ -96,6 +94,7 @@ namespace SchoolTrackerCs
             return _varConfirmedCPR;
         }
 
+        
         //Failsafe and force input to be chars only
         /// <summary>
         /// https://stackoverflow.com/questions/1181419/verifying-that-a-string-contains-only-letters-in-c-sharp
