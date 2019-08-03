@@ -21,7 +21,7 @@ namespace SchoolTrackerCs
 
         }
 
-        public Teacher(string name, long birthday, string address, int phoneNumber, decimal salary, string specials)
+        public Teacher(string name, string birthday, string address, int phoneNumber, decimal salary, string specials)
         {
             Name = name;
             Address = address;
@@ -34,7 +34,7 @@ namespace SchoolTrackerCs
         //Methods
         public void Display()
         {
-            Console.WriteLine($"Teacher name:{Name} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher email:{Email} \nTeacher birthday:{Birthday} ");
+            Console.WriteLine($"Teacher name:{Name} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher email:{Email} \nTeacher CPR no.:{Birthday} ");
         }
     }
 }

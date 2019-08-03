@@ -67,38 +67,49 @@ namespace SchoolTrackerCs
             return answer;
         }
 
-        static public long CPR(string question)
+        static public string CPR(string question)
         {
-            long _varConfirmedCPR = 0;
+            string _varConfirmedCPR = "";   
             bool loopState = true;
 
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("da-DK");
-
+            DateTime _varConvertConfirmedCPR = new DateTime();
+      
             do
             {
                 Console.WriteLine(question);
-                string inputCPR = Console.ReadLine();
+                string checkCPR = Console.ReadLine();
 
-
-                if (!DateTime.TryParse(String.Format("{0:##-##-19##}", int.Parse(inputCPR.Substring(0, 6))), culture, DateTimeStyles.None, out DateTime Birthday))
+                if (checkCPR.Length == 10)
                 {
-                    Console.WriteLine("Not valid input");
-                    continue;
-                }
-
-                if (long.TryParse(inputCPR, out long checkCPR) && checkCPR.ToString().Length == 10)
-                {                
+                    
                     _varConfirmedCPR = checkCPR;
-                    loopState = false;
+
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(5, "/");
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
+             
+                    
+                    if (DateTime.TryParse(_varConfirmedCPR.Substring(0,8), out _varConvertConfirmedCPR))
+                    {
+                      
+                        loopState = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not valid try again");
+                    }
+                   
+                   
                 }
                 else
                 {
-                    Console.WriteLine("Try again");
-
+                    Console.WriteLine("PLease try again");
                 }
+                
             } while (loopState);
 
             return _varConfirmedCPR;
+
         }
 
         
