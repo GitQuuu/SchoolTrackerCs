@@ -31,7 +31,7 @@ namespace SchoolTrackerCs
         public void Display()
         {
 
-            Console.WriteLine($"Student name:{Name} \nStudent grade:{Grade} \nStudent birthday date:{Birthday} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
+            Console.WriteLine($"Student name:{Name} \nStudent grade:{Grade} \nStudent CPR no.:{Birthday:##-##-##-####} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
         }
 
     }

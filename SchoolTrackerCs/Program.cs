@@ -12,18 +12,14 @@ namespace SchoolTrackerCs
             /// 
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
-
-            ///Defining an array for our failsafe method CheckStringForElement to use as a parameter like on line 32
-            ///This char array will be used to check the string for not having the values inside the elements
-            ///This allow our CheckStringForElement to be flexibel , we could just instantiate a new array og any desired type and 
-            ///parse in which desired value we want to check the string for
+           
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            char[] email = new char[] { '@' };
+            
 
-            bool addStudent = true;
-            bool addTeacher = true;
+            bool studentLoopState = true;
+            bool teacherLoopState = true;
 
-            while (addStudent)
+            while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
                 ///
@@ -31,9 +27,9 @@ namespace SchoolTrackerCs
 
                 //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
                 //newStudent.Grade = Utility.AskInt("Student grade");
-                //newStudent.Birthday = Utility.Ask("Student birthday dates");
-                newStudent.Address = Utility.CheckStringForElementV5("Student address",digits);
-                newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
+                //newStudent.Address = Utility.Ask("Student address");
+                //newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 /// To add our newStudent object to our list
                 /// 
@@ -47,11 +43,11 @@ namespace SchoolTrackerCs
                 Console.WriteLine("add another? y/n");
                 if (Console.ReadLine() != "y")
                 {
-                    addStudent = false;
+                    studentLoopState = false;
                 }
-
             }
-            while (addTeacher)
+
+            /*while (teacherLoopState)
             {
 
                 if (Utility.Ask("add a(nother) teacher? y/n?") == "y")
@@ -62,7 +58,7 @@ namespace SchoolTrackerCs
                     newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
                     newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     newTeacher.Address = Utility.Ask("Teacher address");
-                    newTeacher.Email = Utility.RequiredSymbols("Teacher email address", email);
+                    newTeacher.Email = Utility.ValidateEmail("Teacher email address");
                     newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
                     newTeacher.Birthday = Utility.Ask("Teacher birth date");
 
@@ -74,10 +70,10 @@ namespace SchoolTrackerCs
                 }
                 else
                 {
-                    addTeacher = false;
+                    teacherLoopState = false;
                 }
-
-            }
+                
+            }*/
 
 
             foreach (Student student in students)
