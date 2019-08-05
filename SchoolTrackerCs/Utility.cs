@@ -66,6 +66,7 @@ namespace SchoolTrackerCs
 
             return answer;
         }
+
         // Method to check the CPR first 6 digits 
         static public string CPR(string question)
         {
