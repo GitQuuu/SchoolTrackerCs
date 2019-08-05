@@ -24,7 +24,7 @@ namespace SchoolTrackerCs
                 ///Instantiating an object from Student class so we can access its content
                 ///
                 Student newStudent = new Student();
-
+                
                 //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
                 //newStudent.Grade = Utility.AskInt("Student grade");
                 newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
@@ -47,7 +47,7 @@ namespace SchoolTrackerCs
                 }
             }
 
-            /*while (teacherLoopState)
+            while (teacherLoopState)
             {
 
                 if (Utility.Ask("add a(nother) teacher? y/n?") == "y")
@@ -73,7 +73,7 @@ namespace SchoolTrackerCs
                     teacherLoopState = false;
                 }
                 
-            }*/
+            }
 
 
             foreach (Student student in students)
