@@ -25,11 +25,11 @@ namespace SchoolTrackerCs
                 ///
                 Student newStudent = new Student();
                 
-                //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
-                //newStudent.Grade = Utility.AskInt("Student grade");
+                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.Grade = Utility.AskInt("Student grade");
                 newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
-                //newStudent.Address = Utility.Ask("Student address");
-                //newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                newStudent.Address = Utility.Ask("Student address");
+                newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 /// To add our newStudent object to our list
                 /// 
