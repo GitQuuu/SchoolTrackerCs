@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace SchoolTrackerCs
 {
@@ -66,6 +67,53 @@ namespace SchoolTrackerCs
             return answer;
         }
 
+        // Method to check the CPR first 6 digits 
+        static public string CPR(string question)
+        {
+            string _varConfirmedCPR = "";   
+            bool loopState = true;
+
+            DateTime _varConvertConfirmedCPR = new DateTime();
+      
+            do
+            {
+                Console.WriteLine(question);
+                string checkCPR = Console.ReadLine();
+
+                if (checkCPR.Length == 10)
+                {
+                    
+                    _varConfirmedCPR = checkCPR;
+
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(2, "/");
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(5, "/");
+                    _varConfirmedCPR = _varConfirmedCPR.Insert(8, "/");
+             
+                    
+                    if (DateTime.TryParse(_varConfirmedCPR.Substring(0,8), out _varConvertConfirmedCPR))
+                    {
+                      
+                        loopState = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not valid try again");
+                    }
+                   
+                   
+                }
+                else
+                {
+                    Console.WriteLine("PLease try again");
+                }
+                
+            } while (loopState);
+
+            return _varConfirmedCPR;
+
+        }
+
+        
         //Failsafe and force input to be chars only
         /// <summary>
         /// https://stackoverflow.com/questions/1181419/verifying-that-a-string-contains-only-letters-in-c-sharp

@@ -12,13 +12,9 @@ namespace SchoolTrackerCs
             /// 
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
-
-            ///Defining an array for our failsafe method CheckStringForElement to use as a parameter like on line 32
-            ///This char array will be used to check the string for not having the values inside the elements
-            ///This allow our CheckStringForElement to be flexibel , we could just instantiate a new array og any desired type and 
-            ///parse in which desired value we want to check the string for
+           
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            char[] email = new char[] { '@' };
+            
 
             bool studentLoopState = true;
             bool teacherLoopState = true;
@@ -28,10 +24,10 @@ namespace SchoolTrackerCs
                 ///Instantiating an object from Student class so we can access its content
                 ///
                 Student newStudent = new Student();
-
+                
                 newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
                 newStudent.Grade = Utility.AskInt("Student grade");
-                newStudent.Birthday = Utility.Ask("Student birthday dates");
+                newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
@@ -76,7 +72,7 @@ namespace SchoolTrackerCs
                 {
                     teacherLoopState = false;
                 }
-
+                
             }
 
 
