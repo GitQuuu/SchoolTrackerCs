@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace SchoolTrackerCs
 {
     class Program
@@ -14,8 +15,8 @@ namespace SchoolTrackerCs
             List<Teacher> teachers = new List<Teacher>();
            
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            
 
+            
             bool studentLoopState = true;
             bool teacherLoopState = true;
 
