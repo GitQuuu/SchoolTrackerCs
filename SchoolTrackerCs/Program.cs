@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Globalization;
+
 
 namespace SchoolTrackerCs
 {
@@ -14,8 +18,8 @@ namespace SchoolTrackerCs
             List<Teacher> teachers = new List<Teacher>();
            
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            
 
+            
             bool studentLoopState = true;
             bool teacherLoopState = true;
 
