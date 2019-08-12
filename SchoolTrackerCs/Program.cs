@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Globalization;
+
 
 namespace SchoolTrackerCs
 {
@@ -14,8 +18,8 @@ namespace SchoolTrackerCs
             List<Teacher> teachers = new List<Teacher>();
            
             char[] digits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            
 
+            
             bool studentLoopState = true;
             bool teacherLoopState = true;
 
@@ -24,12 +28,12 @@ namespace SchoolTrackerCs
                 ///Instantiating an object from Student class so we can access its content
                 ///
                 Student newStudent = new Student();
-
-                //newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
-                //newStudent.Grade = Utility.AskInt("Student grade");
+                
+                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.Grade = Utility.AskInt("Student grade");
                 newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
-                //newStudent.Address = Utility.Ask("Student address");
-                //newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                newStudent.Address = Utility.Ask("Student address");
+                newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 /// To add our newStudent object to our list
                 /// 
@@ -47,7 +51,7 @@ namespace SchoolTrackerCs
                 }
             }
 
-            /*while (teacherLoopState)
+            while (teacherLoopState)
             {
 
                 if (Utility.Ask("add a(nother) teacher? y/n?") == "y")
@@ -73,7 +77,7 @@ namespace SchoolTrackerCs
                     teacherLoopState = false;
                 }
                 
-            }*/
+            }
 
 
             foreach (Student student in students)
