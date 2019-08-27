@@ -7,16 +7,18 @@ namespace SchoolTrackerCs
     class Members
     {
         //fields
-        protected string name;
+        protected string firstName;
+        protected string lastName;
         protected string address;
-        protected string CPR;
+        protected string cpr;
         protected int phoneNumber;
         protected string email;
 
         //properties
-        public string Name { get => name; set => name = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
         public string Address { get => address; set => address = value; }
-        public string Birthday { get => CPR; set => CPR = value; }
+        public string CPR { get => cpr; set => cpr = value; }
         public int PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string Email { get => email; set => email = value; }
     }

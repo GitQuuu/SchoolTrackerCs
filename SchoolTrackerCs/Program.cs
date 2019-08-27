@@ -33,9 +33,10 @@ namespace SchoolTrackerCs
                 ///
                 Student newStudent = new Student();
                 
-                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.FirstName = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.LastName = Utility.ExcludeSymbols("Student lastname",digits);
                 newStudent.Grade = Utility.AskInt("Student grade");
-                newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
+                newStudent.CPR = Utility.CPR("Student CPR - dd/mm/year/serial number");
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
@@ -62,13 +63,14 @@ namespace SchoolTrackerCs
                 {
                     Teacher newTeacher = new Teacher();
 
-                    newTeacher.Name = Utility.ExcludeSymbols("Teacher name", digits);
+                    newTeacher.FirstName = Utility.ExcludeSymbols("Teacher first name", digits);
+                    newTeacher.LastName = Utility.ExcludeSymbols("Teacher last name", digits);
                     newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
                     newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     newTeacher.Address = Utility.Ask("Teacher address");
                     newTeacher.Email = Utility.ValidateEmail("Teacher email address");
                     newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
-                    newTeacher.Birthday = Utility.Ask("Teacher birth date");
+                    newTeacher.CPR = Utility.Ask("Teacher cpr");
 
                     teachers.Add(newTeacher);
 
