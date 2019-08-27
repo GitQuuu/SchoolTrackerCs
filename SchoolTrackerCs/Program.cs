@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Data.SqlClient;
 
 
 namespace SchoolTrackerCs
@@ -12,8 +13,22 @@ namespace SchoolTrackerCs
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to School tracker\n");
-            /// making a single list of our class Student 
-            /// 
+
+            // Build connection string
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "sql.itcn.dk\\TCAA";
+            builder.InitialCatalog = "quan00272.SKOLE";
+            builder.UserID = "quan0027.SKOLE";
+            builder.Password = "1q5tC72MdM";
+
+            // Connect to SQL
+            Console.WriteLine("Connecting to SQL server");
+            using(SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+                Console.WriteLine("Connection succesfull");
+            }
+
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
            
