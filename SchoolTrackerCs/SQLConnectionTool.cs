@@ -12,10 +12,10 @@ namespace SchoolTrackerCs
         {
             // Build connection
             
-            builder.DataSource = "sql.itcn.dk\\TCAA";
-            builder.InitialCatalog = "quan00272.SKOLE";
-            builder.UserID = "quan0027.SKOLE";
-            builder.Password = "1q5tC72MdM";
+            builder.DataSource = "qunication.database.windows.net";
+            builder.InitialCatalog = "Qu";
+            builder.UserID = "Quuu";
+            builder.Password = "Takemymoney7";
       
         }
 
