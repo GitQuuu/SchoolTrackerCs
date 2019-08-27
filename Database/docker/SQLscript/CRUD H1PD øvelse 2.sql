@@ -1,9 +1,0 @@
-﻿CREATE TABLE [dbo].[H1PD]
-(
-	[Id] INT NOT NULL PRIMARY KEY  IDENTITY, 
-    [firstName] NVARCHAR(50) NOT NULL, 
-    [lastName] NVARCHAR(50) NOT NULL, 
-    [age] INT NOT NULL, 
-    [job] NVARCHAR(50) NOT NULL
-	
-)

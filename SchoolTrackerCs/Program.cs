@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Data.SqlClient;
 
 
 namespace SchoolTrackerCs
@@ -12,8 +13,11 @@ namespace SchoolTrackerCs
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to School tracker\n");
-            /// making a single list of our class Student 
-            /// 
+
+            SQLConnectionTool.BuildConnectionString();
+            SQLConnectionTool.ConnectSQL();
+            
+
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
            
@@ -91,6 +95,7 @@ namespace SchoolTrackerCs
                 teacher.Display();
             }
 
+            
             Console.ReadLine();
 
         }
