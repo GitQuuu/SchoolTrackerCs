@@ -14,20 +14,9 @@ namespace SchoolTrackerCs
         {
             Console.WriteLine("Welcome to School tracker\n");
 
-            // Build connection string
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "sql.itcn.dk\\TCAA";
-            builder.InitialCatalog = "quan00272.SKOLE";
-            builder.UserID = "quan0027.SKOLE";
-            builder.Password = "1q5tC72MdM";
-
-            // Connect to SQL
-            Console.WriteLine("Connecting to SQL server");
-            using(SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                connection.Open();
-                Console.WriteLine("Connection succesfull");
-            }
+            SQLConnectionTool.BuildConnectionString();
+            SQLConnectionTool.ConnectSQL();
+            
 
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
@@ -106,6 +95,7 @@ namespace SchoolTrackerCs
                 teacher.Display();
             }
 
+            
             Console.ReadLine();
 
         }
