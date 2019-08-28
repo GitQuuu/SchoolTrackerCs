@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace SchoolTrackerCs
 {
-    class SQLConnectionToolBridge
+    class ConnectSQL
     {
         static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         static public void BuildConnectionString()
@@ -19,7 +19,7 @@ namespace SchoolTrackerCs
       
         }
 
-        static public void ConnectSQL()
+        static public void Connect()
         {
             // Connect to SQL
 
@@ -31,7 +31,7 @@ namespace SchoolTrackerCs
             }
         }
 
-        static public void DisconnectSQL()
+        static public void Disconnect()
         {
             Console.WriteLine("Disconnecting SQL server");
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
