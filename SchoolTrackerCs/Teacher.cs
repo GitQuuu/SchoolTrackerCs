@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Teacher : Members
+    class Teacher : Member
     {
         static public int Count = 0;
 

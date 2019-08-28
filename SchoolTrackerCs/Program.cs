@@ -40,6 +40,10 @@ namespace SchoolTrackerCs
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
+                ///Add to our Database
+                ConnectSQL.BuildSqlCommand(newStudent);
+                ConnectSQL.BuildSqlCommandGrade(newStudent);
+
                 /// To add our newStudent object to our list
                 /// 
                 students.Add(newStudent);
