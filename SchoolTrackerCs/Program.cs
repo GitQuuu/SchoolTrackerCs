@@ -14,8 +14,8 @@ namespace SchoolTrackerCs
         {
             Console.WriteLine("Welcome to School tracker\n");
 
-            SQLConnectionTool.BuildConnectionString();
-            SQLConnectionTool.ConnectSQL();
+            ConnectSQL.BuildConnectionString();
+            ConnectSQL.Connect();
             
 
             List<Student> students = new List<Student>();
@@ -39,6 +39,10 @@ namespace SchoolTrackerCs
                 newStudent.CPR = Utility.CPR("Student CPR - dd/mm/year/serial number");
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+
+                ///Add to our Database
+                ConnectSQL.BuildSqlCommand(newStudent);
+                ConnectSQL.BuildSqlCommandGrade(newStudent);
 
                 /// To add our newStudent object to our list
                 /// 

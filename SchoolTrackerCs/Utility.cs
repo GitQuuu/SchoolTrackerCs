@@ -97,7 +97,7 @@ namespace SchoolTrackerCs
                     }
                     else
                     {
-                        Console.WriteLine("Not valid try again");
+                        Console.WriteLine("Not valid try again\n\ndd/mm/ or mm/dd");
                     }
                    
                    

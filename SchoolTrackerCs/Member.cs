@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Members
+    class Member
     {
         //fields
         protected string firstName;
