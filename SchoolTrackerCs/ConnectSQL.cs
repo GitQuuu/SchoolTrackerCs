@@ -43,7 +43,7 @@ namespace SchoolTrackerCs
         {
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-                String query = "INSERT INTO dbo.Member(firstName,lastName,address,CPR,phoneNumber,email) VALUES(@firstName,@lastName,@address,@CPR,@phoneNumber,@email)";
+                String query = "INSERT INTO dbo.Member(FirstName,LastName,Address,CPR,PhoneNumber,Email) VALUES(@FirstName,@LastName,@Address,@CPR,@PhoneNumber,@Email)";
 
                 using (SqlCommand command = new SqlCommand(query,connection))
                 {
