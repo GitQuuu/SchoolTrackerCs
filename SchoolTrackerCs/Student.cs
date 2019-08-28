@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Student:Members
+    class Student:Member
     {
         // This is to keep track of the amount of students we add to our list
         static public int Count = 0;
