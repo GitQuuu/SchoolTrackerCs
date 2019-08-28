@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using System.Data.SqlClient;
+using System.Data.Sql;
 
 
 namespace SchoolTrackerCs
@@ -30,7 +31,7 @@ namespace SchoolTrackerCs
             while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
-                ///
+                
                 Student newStudent = new Student();
                 
                 newStudent.FirstName = Utility.ExcludeSymbols("Student name", digits);
@@ -41,8 +42,8 @@ namespace SchoolTrackerCs
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
 
                 ///Add to our Database
-                ConnectSQL.BuildSqlCommand(newStudent);
-                ConnectSQL.BuildSqlCommandGrade(newStudent);
+                ConnectSQL.BuildSqlCommandMember(newStudent);
+                ConnectSQL.BuildSqlCommandStudent(newStudent);
 
                 /// To add our newStudent object to our list
                 /// 
@@ -76,6 +77,8 @@ namespace SchoolTrackerCs
                     newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
                     newTeacher.CPR = Utility.Ask("Teacher cpr");
 
+                    ConnectSQL.BuildSqlCommandMember(newTeacher);
+
                     teachers.Add(newTeacher);
 
                     Teacher.Count++;
@@ -101,6 +104,7 @@ namespace SchoolTrackerCs
                 teacher.Display();
             }
 
+            
             
             Console.ReadLine();
 
