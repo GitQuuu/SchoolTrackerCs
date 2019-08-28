@@ -14,8 +14,8 @@ namespace SchoolTrackerCs
         {
             Console.WriteLine("Welcome to School tracker\n");
 
-            SQLConnectionTool.BuildConnectionString();
-            SQLConnectionTool.ConnectSQL();
+            SQLConnectionToolBridge.BuildConnectionString();
+            SQLConnectionToolBridge.ConnectSQL();
             
 
             List<Student> students = new List<Student>();

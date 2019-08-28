@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace SchoolTrackerCs
 {
-    class SQLConnectionTool
+    class SQLConnectionToolBridge
     {
         static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         static public void BuildConnectionString()
