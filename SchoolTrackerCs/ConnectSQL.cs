@@ -38,12 +38,15 @@ namespace SchoolTrackerCs
                 Console.WriteLine("Disconnecting successfull");
             }
         }
-
-        static public void BuildSqlCommand(Student student)
+        /// <summary>
+        /// Method to INSERT INTO database table for students
+        /// </summary>
+        /// <param name="student">Insert which parameter the method will have access too</param>
+        static public void BuildSqlCommandMember(Student student)
         {
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-                String query = "INSERT INTO dbo.Member(firstName,lastName,address,CPR,phoneNumber,email) VALUES(@firstName,@lastName,@address,@CPR,@phoneNumber,@email)";
+                String query = "INSERT INTO dbo.Member(FirstName,LastName,Address,CPR,PhoneNumber,Email) VALUES(@FirstName,@LastName,@Address,@CPR,@PhoneNumber,@Email)";
 
                 using (SqlCommand command = new SqlCommand(query,connection))
                 {
@@ -64,8 +67,37 @@ namespace SchoolTrackerCs
             }
        
         }
+        /// <summary>
+        /// Method to INSERT INTO database table for teachers
+        /// </summary>
+        /// <param name="teacher">Insert which parameter the method will have access too</param>
+        static public void BuildSqlCommandMember(Teacher teacher)
+        {
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                String query = "INSERT INTO dbo.Member(FirstName,LastName,Address,CPR,PhoneNumber,Email) VALUES(@FirstName,@LastName,@Address,@CPR,@PhoneNumber,@Email)";
 
-        static public void BuildSqlCommandGrade(Student student)
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", $"{teacher.FirstName}");
+                    command.Parameters.AddWithValue("@lastName", $"{teacher.LastName}");
+                    command.Parameters.AddWithValue("@address", $"{teacher.Address}");
+                    command.Parameters.AddWithValue("@CPR", $"{teacher.CPR}");
+                    command.Parameters.AddWithValue("@phoneNumber", $"{teacher.PhoneNumber}");
+                    command.Parameters.AddWithValue("@email", $"{teacher.Email}");
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+                }
+
+            }
+
+        }
+
+        static public void BuildSqlCommandStudent(Student student)
         {
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -86,14 +118,9 @@ namespace SchoolTrackerCs
 
         }
 
-        static public string BuildQuery(string tableName, Member member)
-        {
-            return $"INSERT INTO {tableName} VALUES({member.FirstName},{member.LastName},{member.Address},{member.CPR},{member.PhoneNumber},{member.Email})";
-            
-        }
-    }
-        
-        
 
-            
+
+
+      
+    }      
 }
