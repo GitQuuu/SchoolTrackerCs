@@ -40,6 +40,7 @@ namespace SchoolTrackerCs
                 newStudent.CPR = Utility.CPR("Student CPR - dd/mm/year/serial number");
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                newStudent.Email = Utility.ValidateEmail("Student email");
 
                 ///Add to our Database
                 ConnectSQL.BuildSqlCommandMember(newStudent);

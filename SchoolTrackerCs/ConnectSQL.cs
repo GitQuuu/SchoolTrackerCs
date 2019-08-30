@@ -46,16 +46,20 @@ namespace SchoolTrackerCs
         {
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-                String query = "INSERT INTO dbo.Member(FirstName,LastName,Address,CPR,PhoneNumber,Email) VALUES(@FirstName,@LastName,@Address,@CPR,@PhoneNumber,@Email)";
+                
 
-                using (SqlCommand command = new SqlCommand(query,connection))
+                using (SqlCommand command = new SqlCommand("InsertIDIntoOtherTable", connection))
                 {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@firstName", $"{student.FirstName}");
                     command.Parameters.AddWithValue("@lastName", $"{student.LastName}");
+                    command.Parameters.AddWithValue("@Grade", $"{student.Grade}");
                     command.Parameters.AddWithValue("@address", $"{student.Address}");
                     command.Parameters.AddWithValue("@CPR", $"{student.CPR}");
                     command.Parameters.AddWithValue("@phoneNumber", $"{student.PhoneNumber}");
                     command.Parameters.AddWithValue("@email", $"{student.Email}");
+                    command.Parameters.AddWithValue("@TableIDStore", 1);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
