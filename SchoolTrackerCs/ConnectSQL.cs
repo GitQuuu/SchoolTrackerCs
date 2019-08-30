@@ -47,7 +47,7 @@ namespace SchoolTrackerCs
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 
-
+                // "InsertIDIntoOtherTable is a SQL store procedure we parse into our parameter"
                 using (SqlCommand command = new SqlCommand("InsertIDIntoOtherTable", connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
