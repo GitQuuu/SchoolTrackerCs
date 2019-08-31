@@ -44,7 +44,7 @@ namespace SchoolTrackerCs
 
                 ///Add to our Database
                 ConnectSQL.BuildSqlCommandMember(newStudent);
-                ConnectSQL.BuildSqlCommandStudent(newStudent);
+                
 
                 /// To add our newStudent object to our list
                 /// 
