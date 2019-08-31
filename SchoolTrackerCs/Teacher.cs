@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Teacher : Members
+    class Teacher : Member
     {
         static public int Count = 0;
 
@@ -21,11 +21,12 @@ namespace SchoolTrackerCs
 
         }
 
-        public Teacher(string name, string birthday, string address, int phoneNumber, decimal salary, string specials)
+        public Teacher(string firstName, string lastName, string cpr, string address, int phoneNumber, decimal salary, string specials)
         {
-            Name = name;
+            FirstName = firstName;
+            LastName = lastName;
             Address = address;
-            Birthday = birthday;
+            CPR = cpr;
             PhoneNumber = phoneNumber;
             Salary = salary;
             Specials = specials;
@@ -34,7 +35,7 @@ namespace SchoolTrackerCs
         //Methods
         public void Display()
         {
-            Console.WriteLine($"Teacher name:{Name} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher email:{Email} \nTeacher CPR no.:{Birthday} ");
+            Console.WriteLine($"Teacher name:{FirstName}{LastName} \nTeacher salary:{Salary} \nTeacher specials:{Specials} \nTeacher address:{Address} \nTeacher phone number:{PhoneNumber} \nTeacher email:{Email} \nTeacher CPR no.:{CPR} ");
         }
     }
 }

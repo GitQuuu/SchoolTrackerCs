@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Student:Members
+    class Student:Member
     {
         // This is to keep track of the amount of students we add to our list
         static public int Count = 0;
@@ -18,11 +18,11 @@ namespace SchoolTrackerCs
         }
 
         // A constructor for our Student class, this is so we can add a student hvis we already have the info beforehand
-        public Student(string name, int grade, string birthday, string address, int phoneNumber)
+        public Student(string firstName, string lastName, int grade, string cpr, string address, int phoneNumber)
         {
-            Name = name;
+            FirstName = firstName;
             Grade = grade;
-            Birthday = birthday;
+            CPR = cpr;
             Address = address;
             PhoneNumber = phoneNumber;
         }
@@ -31,7 +31,7 @@ namespace SchoolTrackerCs
         public void Display()
         {
 
-            Console.WriteLine($"Student name:{Name} \nStudent grade:{Grade} \nStudent CPR no.:{Birthday:##-##-##-####} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
+            Console.WriteLine($"Student name:{FirstName} {LastName} \nStudent grade:{Grade} \nStudent CPR no.:{CPR:##-##-##-####} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
         }
 
     }

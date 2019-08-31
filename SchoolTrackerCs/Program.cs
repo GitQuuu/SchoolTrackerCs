@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 
 namespace SchoolTrackerCs
@@ -12,8 +14,11 @@ namespace SchoolTrackerCs
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to School tracker\n");
-            /// making a single list of our class Student 
-            /// 
+
+            ConnectSQL.BuildConnectionString();
+            ConnectSQL.Connect();
+            
+
             List<Student> students = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
            
@@ -26,14 +31,20 @@ namespace SchoolTrackerCs
             while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
-                ///
+                
                 Student newStudent = new Student();
                 
-                newStudent.Name = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.FirstName = Utility.ExcludeSymbols("Student name", digits);
+                newStudent.LastName = Utility.ExcludeSymbols("Student lastname",digits);
                 newStudent.Grade = Utility.AskInt("Student grade");
-                newStudent.Birthday = Utility.CPR("Student CPR - dd/mm/year/serial number");
+                newStudent.CPR = Utility.CPR("Student CPR - dd/mm/year/serial number");
                 newStudent.Address = Utility.Ask("Student address");
                 newStudent.PhoneNumber = Utility.AskInt("Student phone number");
+                newStudent.Email = Utility.ValidateEmail("Student email");
+
+                ///Add to our Database
+                ConnectSQL.BuildSqlCommandMember(newStudent);
+                ConnectSQL.BuildSqlCommandStudent(newStudent);
 
                 /// To add our newStudent object to our list
                 /// 
@@ -58,13 +69,16 @@ namespace SchoolTrackerCs
                 {
                     Teacher newTeacher = new Teacher();
 
-                    newTeacher.Name = Utility.ExcludeSymbols("Teacher name", digits);
+                    newTeacher.FirstName = Utility.ExcludeSymbols("Teacher first name", digits);
+                    newTeacher.LastName = Utility.ExcludeSymbols("Teacher last name", digits);
                     newTeacher.Salary = Utility.AskDecimal("Teacher salary pr hour");
                     newTeacher.Specials = Utility.Ask("Which subject is the Teacher special");
                     newTeacher.Address = Utility.Ask("Teacher address");
                     newTeacher.Email = Utility.ValidateEmail("Teacher email address");
                     newTeacher.PhoneNumber = Utility.AskInt("Teacher phone number");
-                    newTeacher.Birthday = Utility.Ask("Teacher birth date");
+                    newTeacher.CPR = Utility.Ask("Teacher cpr");
+
+                    ConnectSQL.BuildSqlCommandMember(newTeacher);
 
                     teachers.Add(newTeacher);
 
@@ -91,6 +105,8 @@ namespace SchoolTrackerCs
                 teacher.Display();
             }
 
+            
+            
             Console.ReadLine();
 
         }
