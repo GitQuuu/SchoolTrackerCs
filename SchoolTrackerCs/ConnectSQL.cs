@@ -50,6 +50,8 @@ namespace SchoolTrackerCs
                 // "InsertIDIntoOtherTable is a SQL store procedure we parse into our parameter"
                 using (SqlCommand command = new SqlCommand("InsertIDIntoOtherTable", connection))
                 {
+                    connection.Open();
+
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.AddWithValue("@TableIDStore", 1);
@@ -61,12 +63,12 @@ namespace SchoolTrackerCs
                     command.Parameters.AddWithValue("@phoneNumber", $"{student.PhoneNumber}");
                     command.Parameters.AddWithValue("@email", $"{student.Email}");
                     
-
-                    connection.Open();
                     int result = command.ExecuteNonQuery();
 
                     if (result < 0)
                         Console.WriteLine("Error inserting data into Database!");
+
+                    connection.Close();
                 }
 
             }
@@ -83,6 +85,7 @@ namespace SchoolTrackerCs
 
                 using (SqlCommand command = new SqlCommand("InsertIDIntoOtherTable", connection))
                 {
+                    connection.Open();
 
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -96,12 +99,14 @@ namespace SchoolTrackerCs
                     command.Parameters.AddWithValue("@phoneNumber", $"{teacher.PhoneNumber}");
                     command.Parameters.AddWithValue("@email", $"{teacher.Email}");
 
-
-                    connection.Open();
+                    
                     int result = command.ExecuteNonQuery();
+                    
 
                     if (result < 0)
                         Console.WriteLine("Error inserting data into Database!");
+
+                    connection.Close();
                 }
 
             }

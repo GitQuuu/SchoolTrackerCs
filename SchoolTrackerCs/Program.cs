@@ -28,7 +28,7 @@ namespace SchoolTrackerCs
             bool studentLoopState = true;
             bool teacherLoopState = true;
 
-            while (studentLoopState)
+            /*while (studentLoopState)
             {
                 ///Instantiating an object from Student class so we can access its content
                 
@@ -60,7 +60,7 @@ namespace SchoolTrackerCs
                 {
                     studentLoopState = false;
                 }
-            }
+            }*/
 
             while (teacherLoopState)
             {
