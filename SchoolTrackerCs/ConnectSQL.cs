@@ -62,7 +62,9 @@ namespace SchoolTrackerCs
                     command.Parameters.AddWithValue("@CPR", $"{student.CPR}");
                     command.Parameters.AddWithValue("@phoneNumber", $"{student.PhoneNumber}");
                     command.Parameters.AddWithValue("@email", $"{student.Email}");
- 
+
+                    int result = command.ExecuteNonQuery();
+
                     connection.Close();
                 }
 
@@ -93,7 +95,9 @@ namespace SchoolTrackerCs
                     command.Parameters.AddWithValue("@CPR", $"{teacher.CPR}");
                     command.Parameters.AddWithValue("@phoneNumber", $"{teacher.PhoneNumber}");
                     command.Parameters.AddWithValue("@email", $"{teacher.Email}");
-                  
+
+                    int result = command.ExecuteNonQuery();
+
                     connection.Close();
                 }
 
