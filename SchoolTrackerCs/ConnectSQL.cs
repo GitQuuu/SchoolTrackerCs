@@ -101,26 +101,7 @@ namespace SchoolTrackerCs
 
         }
 
-        static public void BuildSqlCommandStudent(Student student)
-        {
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                String query = "INSERT INTO dbo.Student(StudentGrade) VALUES(@StudentGrade)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@StudentGrade", $"{student.Grade}");
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-                    if (result < 0)
-                        Console.WriteLine("Error inserting data into Database!");
-                }
-
-            }
-
-        }
+     
 
 
 
