@@ -30,10 +30,6 @@ namespace SchoolTrackerCs
             }
         }
 
-        //public int Grade { get => grade;
-        //    set => grade = Utility.AskInt("Student grade");
-        //}
-        //Default contructor is needed because we created a constructor for our Student class
         public Student()
         {
 
