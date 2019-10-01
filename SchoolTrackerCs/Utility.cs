@@ -17,7 +17,7 @@ namespace SchoolTrackerCs
 
         //Failsafe function force input to int
 
-        static public int AskInt(string question)
+        public static int AskInt(string question)
         {
             bool loopState = true;
             int result = 0;
@@ -39,6 +39,28 @@ namespace SchoolTrackerCs
 
             return result;
         }
+
+        //static public bool ConfirmMethod(int method)
+        //{
+        //    bool loopState = true;
+        //    bool result = false;
+
+        //    do
+        //    {
+        //        if (method.GetType(AskInt("Student grade"),))
+        //        {
+        //            result = true;
+        //            loopState = false;
+        //        }
+        //        else
+        //        {
+        //            System.Console.WriteLine("try again ");
+        //        }
+
+        //    } while (loopState);
+
+        //    return result;
+        //}
 
         static public decimal AskDecimal(string question)
         {

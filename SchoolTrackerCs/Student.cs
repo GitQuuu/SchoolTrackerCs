@@ -4,13 +4,35 @@ using System.Text;
 
 namespace SchoolTrackerCs
 {
-    class Student:Member
+    class  Student:Member
     {
         // This is to keep track of the amount of students we add to our list
-        static public int Count = 0;
-        protected int grade;
-        public int Grade { get => grade; set => grade = value; }
+        public static int Count = 0;
+        protected int grade = 2;
 
+        public int Grade
+        {
+            get => grade;
+            set
+            {
+
+                if (value == -2 || value == 0 || value == 2 || value == 4 || value == 7 || value == 10 || value == 12)
+                {
+                    grade = value;
+
+                }
+                else
+                {
+                    Console.WriteLine("value not valid please use 12 grade scale - grade not set\n");
+                    // line 28 is a "loop" that will keep continue aslong as we goes into our else block
+                    this.Grade = Utility.AskInt("Student grade");
+                }
+            }
+        }
+
+        //public int Grade { get => grade;
+        //    set => grade = Utility.AskInt("Student grade");
+        //}
         //Default contructor is needed because we created a constructor for our Student class
         public Student()
         {
@@ -30,8 +52,8 @@ namespace SchoolTrackerCs
         //Methods
         public void Display()
         {
-
-            Console.WriteLine($"Student name:{FirstName} {LastName} \nStudent grade:{Grade} \nStudent CPR no.:{CPR:##-##-##-####} \nStudent address:{Address} \nStudent phone numer:{PhoneNumber}");
+            Console.WriteLine($"Student name:{FirstName} {LastName} \nStudent grade:{Grade} \nStudent CPR no.:{CPR:##-##-##-####} \nStudent address:{Address} \nStudent phone number:{PhoneNumber}");
+            
         }
 
     }
